@@ -19,7 +19,7 @@ export const fetchSearchItems = gifs => {
 
 // Fetching the current trending items on  asynchronously.
 export const fetchTrendingAsync = offset => {
-  const request = `/gifs/trending?offset=${offset}&api_key=${apiKey}`;
+  const request = `/gifs/trending?offset=${offset}&api_key=${apiKey}&limit=12`;
   return dispatch => {
     axios
       .get(request)
@@ -32,12 +32,12 @@ export const fetchTrendingAsync = offset => {
 
 // Fetching gif items on search parameter asynchronously.
 export const fetchSearchAsync = (search, offset) => {
-  const request = `/gifs/search?q=${search}offset=${offset}&api_key=${apiKey}`;
+  const request = `/gifs/search?q=${search}&offset=${offset}&api_key=${apiKey}&limit=12`;
   return dispatch => {
     axios
       .get(request)
       .then(response => {
-        dispatch(fetchTrendingItems(response.data.data));
+        dispatch(fetchSearchItems(response.data.data));
       })
       .catch(error => {});
   };

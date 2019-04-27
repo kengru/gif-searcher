@@ -11,6 +11,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         gifs: action.gifs
       };
+    case types.FETCH_SEARCH_GIFS:
+      return {
+        ...state,
+        gifs: action.gifs
+      }
     default:
       break;
   }
