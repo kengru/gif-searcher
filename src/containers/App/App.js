@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import GifContainer from "../GifContainer/GifContainer";
 import Seeker from "../Seeker/Seeker";
+import GifContainer from "../GifContainer/GifContainer";
+import Pagination from "../Pagination/Pagination";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <Seeker />
         <p>gifs are:</p>
         <GifContainer />
+        <Pagination />
       </div>
     );
   }

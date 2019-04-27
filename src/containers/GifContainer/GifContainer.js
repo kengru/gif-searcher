@@ -1,17 +1,24 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions/gifs";
 import GifStills from "../../components/GifStills/GifStills";
 
-class GifContainer extends Component {
+class GifContainer extends PureComponent {
   componentDidMount() {
-    this.props.onFetchGifs(0);
+    this.props.onFetchGifs(this.props.offset);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.offset !== prevProps.offset) {
+      this.props.onFetchGifs(this.props.offset);
+    }
+  }
+
   render() {
     return (
       <div>
-        <GifStills gifs={this.props.gifs}/>
+        <GifStills gifs={this.props.gifs} />
         {/* <Pagination /> */}
       </div>
     );
@@ -20,7 +27,8 @@ class GifContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    gifs: state.gifs
+    gifs: state.gifs,
+    offset: state.offset
   };
 };
 

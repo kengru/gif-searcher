@@ -3,17 +3,26 @@ import axios from "../../axiosGiphy";
 
 const apiKey = process.env.REACT_APP_GIPHY_KEY;
 
-export const fetchTrendingItems = gifs => {
+export const fetchTrendingItems = gifsData => {
   return {
     type: types.FETCH_TRENDING_GIFS,
-    gifs: gifs
+    gifs: gifsData.gifs,
+    pages: gifsData.pages
   };
 };
 
-export const fetchSearchItems = gifs => {
+export const fetchSearchItems = gifsData => {
   return {
     type: types.FETCH_SEARCH_GIFS,
-    gifs: gifs
+    gifs: gifsData.gifs,
+    pages: gifsData.pages
+  };
+};
+
+export const setOffset = offset => {
+  return {
+    type: types.SET_OFFSET,
+    offset: offset
   };
 };
 
@@ -24,7 +33,12 @@ export const fetchTrendingAsync = offset => {
     axios
       .get(request)
       .then(response => {
-        dispatch(fetchTrendingItems(response.data.data));
+        let gifsData = {
+          gifs: response.data.data,
+          pages: response.data.pagination.total_count / 12
+        };
+        console.log(response.data);
+        dispatch(fetchTrendingItems(gifsData));
       })
       .catch(error => {});
   };
@@ -37,7 +51,12 @@ export const fetchSearchAsync = (search, offset) => {
     axios
       .get(request)
       .then(response => {
-        dispatch(fetchSearchItems(response.data.data));
+        let gifsData = {
+          gifs: response.data.data,
+          pages: response.data.pagination.total_count / 12
+        };
+        console.log(response.data);
+        dispatch(fetchSearchItems(gifsData));
       })
       .catch(error => {});
   };
