@@ -10,7 +10,8 @@ const gifStills = props => {
     gifs = props.gifs.map(gif => (
       // <Still key={gif.id} url={gif.images.original_still.url} alt={gif.id} />
       // <Still key={gif.id} url={gif.images.original.webp} alt={gif.id} />
-      <Still key={gif.id} url={gif.images.downsized_still.url} alt={gif.id} />
+      // <Still key={gif.id} url={gif.images.downsized_still.url} alt={gif.id} />
+      <Still key={gif.id} url={gif.images.fixed_height.url} alt={gif.id} />
     ));
   }
 

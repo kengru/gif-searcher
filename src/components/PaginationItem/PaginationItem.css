@@ -1,0 +1,21 @@
+.PaginationItem {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid cornflowerblue;
+  transition: all .2s ease-in-out;
+}
+
+.NotPaginationItem {
+  margin: 5px;
+  padding: 5px;
+}
+
+.PaginationItem:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.Active {
+  background-color: dodgerblue;
+  color: white;
+}

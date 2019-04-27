@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions/gifs";
-
 import PaginationItem from "../../components/PaginationItem/PaginationItem";
+
+import "./Pagination.css";
 
 class Pagination extends Component {
   render() {
@@ -11,7 +12,7 @@ class Pagination extends Component {
     let range = [];
     let current = (this.props.offset + 12) / 12;
     let last = this.props.totalPages;
-    let delta = 2;
+    let delta = 1;
     let left = current - delta;
     let right = current + delta + 1;
     let l;
@@ -42,7 +43,7 @@ class Pagination extends Component {
             <PaginationItem
               key={pageNumber}
               pageNumber={pageNumber}
-              clicked={() => this.props.onSetOffset(pageNumber * 12 - 12)}
+              clicked={() => this.props.onSetOffset(pageNumber * 12 - 12)} active={(this.props.offset + 12) / 12 === pageNumber}
             />
           );
         } else {
@@ -53,7 +54,7 @@ class Pagination extends Component {
       });
     }
     return (
-      <div>
+      <div className="Pagination">
         {result}
       </div>
     );
