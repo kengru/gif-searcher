@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import * as actions from "../../store/actions/gifs";
 
+import "./Seeker.css";
+
 class Seeker extends Component {
   state = {
     param: ""
@@ -23,7 +25,7 @@ class Seeker extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Seeker">
         <form onSubmit={this.submitSearch}>
           <input
             type="text"
@@ -31,7 +33,9 @@ class Seeker extends Component {
             value={this.state.param}
             onChange={this.handleChange}
           />
-          <button type="submit" />
+          <button type="submit" disabled={!this.state.param}>
+            Search
+          </button>
         </form>
       </div>
     );

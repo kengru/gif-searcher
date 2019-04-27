@@ -1,0 +1,8 @@
+.Still {
+  margin: 1rem;
+  transition: all .2s ease-in-out;
+}
+
+.Still:hover {
+  transform: scale(1.1);
+}

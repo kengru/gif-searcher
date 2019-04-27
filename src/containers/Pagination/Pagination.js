@@ -52,53 +52,8 @@ class Pagination extends Component {
         }
       });
     }
-    // // let firstPage = null;
-    // // let previousPage = null;
-    // // let nextPage = null;
-    // // let lastPage = null;
-    // // if (this.props.totalPages > 0) {
-    // //   firstPage = (
-    // //     <PaginationItem
-    // //       pageNumber={1}
-    // //       clicked={() => this.props.onSetOffset(0)}
-    // //     > first</PaginationItem>
-    // //   );
-    // //   let newOffset = this.props.offset + 12;
-    // //   if (this.props.totalPages > 1) {
-    // //     if (this.props.offset < Math.trunc(this.props.totalPages) * 12) {
-    // //       nextPage = (
-    // //         <PaginationItem
-    // //           pageNumber={newOffset / 12 + 1}
-    // //           clicked={() => this.props.onSetOffset(newOffset)}
-    // //           > next </PaginationItem>
-    // //       );
-    // //     }
-    // //     if (this.props.totalPages > 2) {
-    // //       lastPage = (
-    // //         <PaginationItem
-    // //           pageNumber={this.props.totalPages}
-    // //           clicked={() =>
-    // //             this.props.onSetOffset(Math.ceil(this.props.totalPages) * 12)
-    // //           }
-    // //           > last</PaginationItem>
-    // //       );
-    // //       if (this.props.offset >= 12) {
-    // //         previousPage = (
-    // //           <PaginationItem
-    // //             pageNumber={newOffset / 12}
-    // //             clicked={() => this.props.onSetOffset(this.props.offset - 12)}
-    // //             > prev</PaginationItem>
-    // //         );
-    // //       }
-    // //     }
-    // //   }
-    // }
     return (
       <div>
-        {/* {firstPage}
-        {previousPage}
-        {nextPage}
-        {lastPage} */}
         {result}
       </div>
     );

@@ -2,6 +2,8 @@ import React from "react";
 
 import Still from "./Still/Still";
 
+import "./GifStills.css";
+
 const gifStills = props => {
   let gifs = null;
   if (props.gifs.length) {
@@ -12,7 +14,7 @@ const gifStills = props => {
     ));
   }
 
-  return <div>{gifs}</div>;
+  return <div className="GifStills">{gifs}</div>;
 };
 
 export default gifStills;

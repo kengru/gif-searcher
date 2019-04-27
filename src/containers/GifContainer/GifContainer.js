@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/gifs";
 import GifStills from "../../components/GifStills/GifStills";
 
+import "./GifContainer.css";
+
 class GifContainer extends PureComponent {
   componentDidMount() {
     this.props.onFetchGifs();
@@ -24,7 +26,7 @@ class GifContainer extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="GifContainer">
         <GifStills gifs={this.props.gifs} />
         {/* <Pagination /> */}
       </div>
