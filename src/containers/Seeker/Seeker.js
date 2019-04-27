@@ -10,13 +10,14 @@ class Seeker extends Component {
 
   handleChange = event => {
     if (!event.target.value) {
-      this.props.onFetchGifs(0);
+      this.props.onFetchGifs();
     }
     this.setState({ param: event.target.value });
   };
 
   submitSearch = event => {
     event.preventDefault();
+    this.props.onSetQuery(this.state.param);
     this.props.onSearchGifs(this.state.param, 0);
   };
 
@@ -41,6 +42,7 @@ const mapDipatchToProps = dispatch => {
   return {
     onSearchGifs: (search, offset) =>
       dispatch(actions.fetchSearchAsync(search, offset)),
+    onSetQuery: search => dispatch(actions.setQueryParam(search)),
     onFetchGifs: offset => dispatch(actions.fetchTrendingAsync(offset))
   };
 };

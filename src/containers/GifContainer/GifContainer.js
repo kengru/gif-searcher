@@ -6,12 +6,19 @@ import GifStills from "../../components/GifStills/GifStills";
 
 class GifContainer extends PureComponent {
   componentDidMount() {
-    this.props.onFetchGifs(this.props.offset);
+    this.props.onFetchGifs();
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.offset !== prevProps.offset) {
-      this.props.onFetchGifs(this.props.offset);
+    console.log();
+    if (
+      this.props.offset !== prevProps.offset &&
+      !this.props.inSearch &&
+      this.props.offset
+    ) {
+      this.props.onFetchGifs();
+    } else if (this.props.inSearch && this.props.offset !== prevProps.offset) {
+      this.props.onSearchGifs(this.props.query, this.props.offset);
     }
   }
 
@@ -28,13 +35,17 @@ class GifContainer extends PureComponent {
 const mapStateToProps = state => {
   return {
     gifs: state.gifs,
-    offset: state.offset
+    offset: state.offset,
+    query: state.query,
+    inSearch: state.inSearch
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchGifs: offset => dispatch(actions.fetchTrendingAsync(offset))
+    onFetchGifs: offset => dispatch(actions.fetchTrendingAsync(offset)),
+    onSearchGifs: (search, offset) =>
+      dispatch(actions.fetchSearchAsync(search, offset))
   };
 };
 

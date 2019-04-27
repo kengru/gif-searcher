@@ -3,7 +3,9 @@ import * as types from "../actions/actionTypes";
 const initialState = {
   gifs: [],
   pages: 0,
-  offset: 0
+  offset: 0,
+  query: "",
+  inSearch: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,19 +13,34 @@ const reducer = (state = initialState, action) => {
     case types.FETCH_TRENDING_GIFS:
       return {
         ...state,
-        gifs: action.gifs,
-        pages: action.pages
+        gifs: action.gifs
       };
     case types.FETCH_SEARCH_GIFS:
       return {
         ...state,
         gifs: action.gifs,
-        pages: action.pages
+        pages: action.pages,
+        offset: action.offset
+      }
+    case types.SET_QUERY_PARAM:
+      return {
+        ...state,
+        query: action.query
+      }
+    case types.SET_IN_SEARCH:
+      return {
+        ...state,
+        inSearch: action.inSearch
       }
     case types.SET_OFFSET:
       return {
         ...state,
         offset: action.offset
+      }
+    case types.SET_PAGES:
+      return {
+        ...state,
+        pages: action.pages
       }
     default:
       break;
