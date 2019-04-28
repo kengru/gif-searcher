@@ -8,7 +8,7 @@ const GalleryContent = props => {
   let previous = 0;
   let next = 1;
   if (props.gif.hasOwnProperty("images")) {
-    gif = props.gif.images.downsized_large.url;
+    gif = props.gif.images.downsized.url;
     // gif = props.gif.images.original.url;
     link = props.gif.images.original.url;
     let index = props.gifs.findIndex(x => x.id === props.gif.id);
@@ -24,6 +24,21 @@ const GalleryContent = props => {
     }
   }
 
+  let copyText = "(click here to copy to clipboard)";
+
+  const copyLink = () => {
+    navigator.permissions.query({ name: "clipboard-write" }).then(result => {
+      if (result.state === "granted" || result.state === "prompt") {
+        navigator.clipboard
+          .writeText(link)
+          .then(() => {
+            copyText = "(copied!)";
+          })
+          .catch(error => console.log(error));
+      }
+    });
+  };
+
   console.log(`previous: ${previous}, next: ${next}`);
   return (
     <div
@@ -35,7 +50,10 @@ const GalleryContent = props => {
     >
       <div className="slide">
         <img src={gif} alt="2" />
-        <p>{link ? link : ""}</p> <span>(copy link)</span>
+        <div className="footer">
+          <p>{link ? link : ""}</p>
+          <span onClick={() => copyLink()}>{copyText}</span>
+        </div>
       </div>
       {previous >= 0 ? (
         <button

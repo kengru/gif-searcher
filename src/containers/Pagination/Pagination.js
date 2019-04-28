@@ -26,9 +26,7 @@ class Pagination extends Component {
       if (l) {
         if (i - l === 2) {
           pagination.push(l + 1);
-        } else if (i - l !== 1) {
-          pagination.push("...");
-        }
+        } 
       }
       pagination.push(i);
       l = i;

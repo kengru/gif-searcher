@@ -3,3 +3,11 @@
   flex-direction: row;
   margin: 15px;
 }
+
+.PaginationItem:first-child {
+  margin-right: 15px;
+}
+
+.PaginationItem:last-child {
+  margin-left: 15px;
+}
