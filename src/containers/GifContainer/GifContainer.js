@@ -44,7 +44,15 @@ class GifContainer extends PureComponent {
         />
       ));
     }
-    return <div className="GifContainer">{gifs}</div>;
+    return (
+      <div className="Container">
+        <span>
+          Showing results for{" "}
+          {this.props.inSearch ? `"${this.props.query}"` : "trending items"}
+        </span>
+        <div className="GifContainer">{gifs}</div>
+      </div>
+    );
   }
 }
 

@@ -56,3 +56,9 @@ typings/
 
 # next.js build output
 .next
+
+# adding build files
+build/
+
+# firebase deploy folder
+.firebase
