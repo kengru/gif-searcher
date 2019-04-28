@@ -24,6 +24,11 @@ class GifContainer extends PureComponent {
     }
   }
 
+  openGallery() {
+    // Get gif.
+    this.props.onSetGalleryOpen(true);
+  }
+
   render() {
     let gifs = null;
     if (this.props.gifs.length) {
@@ -35,6 +40,7 @@ class GifContainer extends PureComponent {
           key={gif.id}
           url={gif.images.fixed_height_still.url}
           alt={gif.id}
+          title={gif.title}
           clicked={value => this.props.onSetGalleryOpen(value)}
         />
       ));

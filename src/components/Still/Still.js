@@ -8,6 +8,7 @@ const still = props => {
       <img
         src={props.url}
         alt={props.alt}
+        title={props.title}
         onClick={() => props.clicked(true)}
       />
     </div>

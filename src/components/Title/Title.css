@@ -9,6 +9,7 @@
 }
 
 .Title p {
+  user-select: none;
   font-size: 4em;
   font-weight: bold;
 }
