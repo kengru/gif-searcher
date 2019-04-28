@@ -1,7 +1,22 @@
-# gif-searcher
-An app that lets the user search for gifs on Giphy.
+# Gif Searcher
 
-- limpiar console y comentarios
-- llenar md con todas la informacion necesaria
-- hacer deploy a la aplicacion
-- probar
+An app that lets users search for gifs on Giphy.
+
+#### Steps to run locally:
+
+`npm install`
+
+Create a .env file with a variable with the api key it should look like this:
+
+    REACT_APP_GIPHY_KEY = IPj6GRW6t3LkCoL9y2C54C5e2TN0Pmhz
+
+That is my API key, and it can be used.
+
+`npm start`
+
+#### To have in consideration:
+
+- Due to the constrains of a [developer giphy key](https://developers.giphy.com/docs/#access) I have limited search pages to 100 so the key can be in continue use.
+- For the same reason, you may recieve a 429 request error because of the limit of the key.
+- <b>The app will not work without the .env file.</b>
+- In the case there is any problem running the app, its also [hosted in firebase](https://gif-searcher-eff5f.firebaseapp.com/).
