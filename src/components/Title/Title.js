@@ -5,7 +5,7 @@ import "./Title.css";
 const Title = () => {
   return (
     <div className="Title">
-      <p>Gif Searcher</p>
+      <p>GIF SEARCHER</p>
     </div>
   );
 };

@@ -27,7 +27,7 @@ class GifContainer extends PureComponent {
   render() {
     return (
       <div className="GifContainer">
-        <GifStills gifs={this.props.gifs} />
+        <GifStills gifs={this.props.gifs} clicked={value => this.props.onSetGalleryOpen(value)}/>
         {/* <Pagination /> */}
       </div>
     );
@@ -47,7 +47,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchGifs: offset => dispatch(actions.fetchTrendingAsync(offset)),
     onSearchGifs: (search, offset) =>
-      dispatch(actions.fetchSearchAsync(search, offset))
+      dispatch(actions.fetchSearchAsync(search, offset)),
+    onSetGalleryOpen: open => dispatch(actions.setGalleryOpen(open))
   };
 };
 

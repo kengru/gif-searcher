@@ -30,6 +30,7 @@ class Seeker extends Component {
           <input
             type="text"
             name="search"
+            size="40"
             value={this.state.param}
             onChange={this.handleChange}
           />

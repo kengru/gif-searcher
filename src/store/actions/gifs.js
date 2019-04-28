@@ -19,6 +19,13 @@ export const fetchSearchItems = gifsData => {
   };
 };
 
+export const setGalleryOpen = value => {
+  return {
+    type: types.SET_GALLERY_OPEN,
+    galleryOpen: value
+  };
+};
+
 export const setQueryParam = value => {
   return {
     type: types.SET_QUERY_PARAM,

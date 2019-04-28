@@ -1,9 +1,9 @@
 .Seeker {
   display: flex;
-  /* width: 100%; */
-  /* margin: auto; */
+  width: 78%;
+  margin: auto;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   text-align: center;
   align-content: space-between;
   height: 3rem;

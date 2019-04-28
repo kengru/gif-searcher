@@ -5,7 +5,8 @@ const initialState = {
   pages: 0,
   offset: 0,
   query: "",
-  inSearch: false
+  inSearch: false,
+  galleryOpen: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,6 +42,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         pages: action.pages
+      }
+    case types.SET_GALLERY_OPEN:
+      return {
+        ...state,
+        galleryOpen: action.galleryOpen
       }
     default:
       break;
