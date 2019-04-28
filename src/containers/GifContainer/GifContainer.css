@@ -1,5 +1,10 @@
 .GifContainer {
   display: flex;
-  align-content: center;
+  flex-wrap: wrap;
+  align-content: space-between;
   width: 80%;
+}
+
+.GifContainer > * {
+  flex: 1 1 160px;
 }

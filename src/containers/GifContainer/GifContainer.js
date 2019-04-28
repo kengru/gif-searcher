@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions/gifs";
-import GifStills from "../../components/GifStills/GifStills";
+import Still from "../../components/Still/Still";
 
 import "./GifContainer.css";
 
@@ -25,10 +25,23 @@ class GifContainer extends PureComponent {
   }
 
   render() {
+    let gifs = null;
+    if (this.props.gifs.length) {
+      gifs = this.props.gifs.map(gif => (
+        // <Still key={gif.id} url={gif.images.original_still.url} alt={gif.id} />
+        // <Still key={gif.id} url={gif.images.original.webp} alt={gif.id} />
+        // <Still key={gif.id} url={gif.images.downsized_still.url} alt={gif.id} />
+        <Still
+          key={gif.id}
+          url={gif.images.fixed_height_still.url}
+          alt={gif.id}
+          clicked={value => this.props.onSetGalleryOpen(value)}
+        />
+      ));
+    }
     return (
       <div className="GifContainer">
-        <GifStills gifs={this.props.gifs} clicked={value => this.props.onSetGalleryOpen(value)}/>
-        {/* <Pagination /> */}
+        {gifs}
       </div>
     );
   }

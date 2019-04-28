@@ -1,6 +1,6 @@
 ### Lista de requerimientos del app.
 
-- [] La pagina nunca debe recargar.
+- [x] La pagina nunca debe recargar.
 - [x] Proveer un form al usuario para que pueda realizar una búsqueda contra la base de datos de GIPHY via el API.
 - [x] Mostrar los resultados en "vista previas" (thumbnails) de una manera que tenga sentido. Una gran cantidad de resultados debería cargar en una forma que tenga en cuenta el performance. 
 - [] Hacer click en una vista previa (o thumbnail) debería lanzar un modal  lightbox-style que permite al usuario navegar a traves de GIFs individuales como en un slideshow. Los GIFs en esta vista deberían ser full animados.
