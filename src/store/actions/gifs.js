@@ -19,6 +19,13 @@ export const fetchSearchItems = gifsData => {
   };
 };
 
+export const setCurrentGif = gif => {
+  return {
+    type: types.SET_CURRENT_GIF,
+    currentGif: gif
+  };
+};
+
 export const setGalleryOpen = value => {
   return {
     type: types.SET_GALLERY_OPEN,
@@ -26,10 +33,10 @@ export const setGalleryOpen = value => {
   };
 };
 
-export const setQueryParam = value => {
+export const setQueryParam = query => {
   return {
     type: types.SET_QUERY_PARAM,
-    query: value
+    query: query
   };
 };
 

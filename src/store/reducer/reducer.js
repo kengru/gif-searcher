@@ -6,7 +6,8 @@ const initialState = {
   offset: 0,
   query: "",
   inSearch: false,
-  galleryOpen: false
+  galleryOpen: false,
+  currentGif: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -42,6 +43,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         pages: action.pages
+      }
+    case types.SET_CURRENT_GIF:
+      return {
+        ...state,
+        currentGif: action.currentGif
       }
     case types.SET_GALLERY_OPEN:
       return {

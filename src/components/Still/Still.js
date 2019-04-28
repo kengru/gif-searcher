@@ -9,7 +9,7 @@ const still = props => {
         src={props.url}
         alt={props.alt}
         title={props.title}
-        onClick={() => props.clicked(true)}
+        onClick={() => props.clicked(props.id)}
       />
     </div>
   );

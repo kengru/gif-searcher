@@ -24,8 +24,10 @@ class GifContainer extends PureComponent {
     }
   }
 
-  openGallery() {
+  openGallery(gifId) {
     // Get gif.
+    const index = this.props.gifs.findIndex(gif => gif.id === gifId);
+    this.props.onSetCurrentGif(this.props.gifs[index]);
     this.props.onSetGalleryOpen(true);
   }
 
@@ -39,9 +41,10 @@ class GifContainer extends PureComponent {
         <Still
           key={gif.id}
           url={gif.images.fixed_height_still.url}
-          alt={gif.id}
+          id={gif.id}
+          alt={gif.title}
           title={gif.title}
-          clicked={value => this.props.onSetGalleryOpen(value)}
+          clicked={value => this.openGallery(value)}
         />
       ));
     }
@@ -58,7 +61,8 @@ const mapStateToProps = state => {
     gifs: state.gifs,
     offset: state.offset,
     query: state.query,
-    inSearch: state.inSearch
+    inSearch: state.inSearch,
+    currentGif: state.currentGif
   };
 };
 
@@ -67,7 +71,8 @@ const mapDispatchToProps = dispatch => {
     onFetchGifs: offset => dispatch(actions.fetchTrendingAsync(offset)),
     onSearchGifs: (search, offset) =>
       dispatch(actions.fetchSearchAsync(search, offset)),
-    onSetGalleryOpen: open => dispatch(actions.setGalleryOpen(open))
+    onSetGalleryOpen: open => dispatch(actions.setGalleryOpen(open)),
+    onSetCurrentGif: gif => dispatch(actions.setCurrentGif(gif))
   };
 };
 

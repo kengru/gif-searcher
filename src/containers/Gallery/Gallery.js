@@ -13,7 +13,12 @@ class Gallery extends Component {
           show={this.props.galleryOpen}
           clicked={() => this.props.onSetGalleryOpen(false)}
         />
-        <GalleryContent show={this.props.galleryOpen} />
+        <GalleryContent
+          show={this.props.galleryOpen}
+          gif={this.props.currentGif}
+          gifs={this.props.gifs}
+          changeGif={gif => this.props.onSetCurrentGif(gif)}
+        />
       </>
     );
   }
@@ -21,13 +26,16 @@ class Gallery extends Component {
 
 const mapStateToProps = state => {
   return {
-    galleryOpen: state.galleryOpen
+    gifs: state.gifs,
+    galleryOpen: state.galleryOpen,
+    currentGif: state.currentGif
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSetGalleryOpen: open => dispatch(actions.setGalleryOpen(open))
+    onSetGalleryOpen: open => dispatch(actions.setGalleryOpen(open)),
+    onSetCurrentGif: gif => dispatch(actions.setCurrentGif(gif))
   };
 };
 
