@@ -9,7 +9,6 @@ const GalleryContent = props => {
   let next = 1;
   if (props.gif.hasOwnProperty("images")) {
     gif = props.gif.images.downsized.url;
-    // gif = props.gif.images.original.url;
     link = props.gif.images.original.url;
     let index = props.gifs.findIndex(x => x.id === props.gif.id);
     if (index > 0) {
@@ -39,7 +38,6 @@ const GalleryContent = props => {
     });
   };
 
-  console.log(`previous: ${previous}, next: ${next}`);
   return (
     <div
       className="Modal"

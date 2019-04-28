@@ -12,7 +12,6 @@ class GifContainer extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    console.log();
     if (
       this.props.offset !== prevProps.offset &&
       !this.props.inSearch &&
@@ -25,7 +24,7 @@ class GifContainer extends PureComponent {
   }
 
   openGallery(gifId) {
-    // Get gif.
+    // Get clicked gif from lists of gifs and set it as current.
     const index = this.props.gifs.findIndex(gif => gif.id === gifId);
     this.props.onSetCurrentGif(this.props.gifs[index]);
     this.props.onSetGalleryOpen(true);
@@ -35,9 +34,6 @@ class GifContainer extends PureComponent {
     let gifs = null;
     if (this.props.gifs.length) {
       gifs = this.props.gifs.map(gif => (
-        // <Still key={gif.id} url={gif.images.original_still.url} alt={gif.id} />
-        // <Still key={gif.id} url={gif.images.original.webp} alt={gif.id} />
-        // <Still key={gif.id} url={gif.images.downsized_still.url} alt={gif.id} />
         <Still
           key={gif.id}
           url={gif.images.fixed_height_still.url}
@@ -48,11 +44,7 @@ class GifContainer extends PureComponent {
         />
       ));
     }
-    return (
-      <div className="GifContainer">
-        {gifs}
-      </div>
-    );
+    return <div className="GifContainer">{gifs}</div>;
   }
 }
 

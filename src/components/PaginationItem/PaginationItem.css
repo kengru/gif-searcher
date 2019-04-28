@@ -2,7 +2,7 @@
   margin: 5px;
   padding: 5px;
   border: 1px solid cornflowerblue;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .NotPaginationItem {
@@ -15,7 +15,7 @@
   transform: scale(1.1);
 }
 
-.Active {
+.active {
   background-color: dodgerblue;
   color: white;
 }

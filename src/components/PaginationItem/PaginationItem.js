@@ -7,12 +7,9 @@ const PaginationItem = props => {
   if (props.pageNumber === "...") {
     item = <div className="NotPaginationItem">{props.pageNumber}</div>;
   } else {
-    let active = props.active ? "Active" : "";
+    let active = props.active ? "active" : "";
     item = (
-      <div
-        onClick={props.clicked}
-        className={`PaginationItem ${active}`}
-      >
+      <div onClick={props.clicked} className={`PaginationItem ${active}`}>
         {props.pageNumber}
       </div>
     );

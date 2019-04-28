@@ -1,3 +1,4 @@
+/* Gif reducer action types. */
 export const FETCH_TRENDING_GIFS = "FETCH_TRENDING_GIFS";
 export const FETCH_SEARCH_GIFS = "FETCH_SEARCH_GIFS";
 export const SET_GALLERY_OPEN = "SET_GALLERY_OPEN";

@@ -19,6 +19,7 @@ export const fetchSearchItems = gifsData => {
   };
 };
 
+// Sets the current gif to be displayed on gallery.
 export const setCurrentGif = gif => {
   return {
     type: types.SET_CURRENT_GIF,
@@ -26,6 +27,7 @@ export const setCurrentGif = gif => {
   };
 };
 
+// Sets the trigger to open the gallery.
 export const setGalleryOpen = value => {
   return {
     type: types.SET_GALLERY_OPEN,
@@ -68,7 +70,6 @@ export const fetchTrendingAsync = offset => {
     axios
       .get(request)
       .then(response => {
-        console.log(response.data);
         dispatch(fetchTrendingItems(response.data.data));
       })
       .then(result => dispatch(setOffset(0)))
@@ -96,7 +97,6 @@ export const fetchSearchAsync = (search, offset) => {
           pages: pages,
           offset: offset
         };
-        console.log(response.data);
         dispatch(fetchSearchItems(gifsData));
       })
       .then(result => dispatch(setInSearch(true)))

@@ -26,36 +26,25 @@ class Pagination extends Component {
       if (l) {
         if (i - l === 2) {
           pagination.push(l + 1);
-        } 
+        }
       }
       pagination.push(i);
       l = i;
     }
 
-    console.log(pagination);
-
     if (pagination.length) {
       result = pagination.map(pageNumber => {
-        if (typeof pageNumber === "number") {
-          return (
-            <PaginationItem
-              key={pageNumber}
-              pageNumber={pageNumber}
-              clicked={() => this.props.onSetOffset(pageNumber * 12 - 12)} active={(this.props.offset + 12) / 12 === pageNumber}
-            />
-          );
-        } else {
-          return (
-            <PaginationItem key={pageNumber} pageNumber="..." clicked={null} />
-          );
-        }
+        return (
+          <PaginationItem
+            key={pageNumber}
+            pageNumber={pageNumber}
+            clicked={() => this.props.onSetOffset(pageNumber * 12 - 12)}
+            active={(this.props.offset + 12) / 12 === pageNumber}
+          />
+        );
       });
     }
-    return (
-      <div className="Pagination">
-        {result}
-      </div>
-    );
+    return <div className="Pagination">{result}</div>;
   }
 }
 
