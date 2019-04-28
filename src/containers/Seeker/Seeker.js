@@ -7,8 +7,13 @@ import "./Seeker.css";
 
 class Seeker extends Component {
   state = {
-    param: ""
+    param: "",
+    textInput: React.createRef()
   };
+
+  componentDidMount() {
+    this.textInput.focus();
+  }
 
   handleChange = event => {
     if (!event.target.value) {
@@ -33,9 +38,10 @@ class Seeker extends Component {
             size="40"
             value={this.state.param}
             onChange={this.handleChange}
+            ref={input => this.textInput = input}
           />
           <button type="submit" disabled={!this.state.param}>
-            Search
+            search
           </button>
         </form>
       </div>

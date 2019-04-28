@@ -6,7 +6,7 @@ const initialState = {
   offset: 0,
   query: "",
   inSearch: false,
-  galleryOpen: true
+  galleryOpen: false
 };
 
 const reducer = (state = initialState, action) => {
