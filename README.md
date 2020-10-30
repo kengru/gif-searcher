@@ -8,9 +8,9 @@ An app that lets users search for gifs on Giphy.
 
 Create a .env file with a variable with the api key it should look like this:
 
-    REACT_APP_GIPHY_KEY = IPj6GRW6t3LkCoL9y2C54C5e2TN0Pmhz
+    REACT_APP_GIPHY_KEY=*******************************
 
-That is my API key, and it can be used.
+I have removed my GIPHY key.
 
 `npm start`
 
