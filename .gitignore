@@ -62,3 +62,6 @@ build/
 
 # firebase deploy folder
 .firebase
+
+# Environment variables
+.env
